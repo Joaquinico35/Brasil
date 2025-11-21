@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brasil - Gigante por Naturaleza</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- VARIABLES DE COLORES --- */
+        :root {
+            --verde: #009c3b;
+            --amarillo: #ffdf00;
+            --azul: #002776;
+            --blanco: #ffffff;
+            --sombra-fuerte: 0 15px 30px rgba(0,0,0,0.4);
+            --sombra-suave: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* --- ESTILOS GENERALES Y FONDO --- */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 2; /* Mucho más espacio entre líneas */
+            position: relative;
+            background-color: #f4f4f4; /* Color de respaldo */
+        }
+
+        /* Truco para el fondo de bandera transparente */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            /* Usamos la imagen de la bandera existente como fondo */
+            background-image: url('img/Ft 1 brasil.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.12; /* Muy transparente para no molestar la lectura */
+            z-index: -1; /* Se coloca detrás de todo */
+        }
+
+        /* --- TIPOGRAFÍA TAMAÑO GRANDE (SOLICITADO) --- */
+        h1, h2, h3 {
+            font-family: 'Lobster', cursive;
+            color: var(--verde);
+            /* Sombra de texto para que resalte más */
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
+        }
+
+        h2 {
+            font-size: 4rem; /* Títulos H2 muy grandes */
+            text-align: center;
+            margin-top: 60px;
+            margin-bottom: 50px;
+            letter-spacing: 1px;
+            border-bottom: 3px solid var(--amarillo);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        /* Centrar el H2 en su contenedor */
+        section h2 {
+            display: block;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        h3 {
+            font-size: 2.8rem; /* Subtítulos H3 grandes */
+            color: var(--azul);
+            margin-top: 40px;
+            margin-bottom: 30px;
+        }
+
+        p, li {
+            font-size: 1.5rem; /* Texto de párrafo mucho más grande */
+            font-weight: 400;
+            margin-bottom: 40px; /* Más espacio entre párrafos */
+        }
+
+        /* --- IMÁGENES --- */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 25px; /* Bordes muy redondeados */
+            box-shadow: var(--sombra-suave);
+            transition: all 0.5s ease;
+            border: 5px solid white;
+        }
+
+        img:hover {
+            transform: scale(1.02) translateY(-10px);
+            box-shadow: var(--sombra-fuerte);
+        }
+
+        /* --- HERO HEADER (PORTADA) --- */
+        header {
+            height: 95vh;
+            background: linear-gradient(rgba(0, 39, 118, 0.5), rgba(0, 156, 59, 0.5)), url('img/Ft 13 Brasil .jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--blanco);
+            border-bottom: 10px solid var(--amarillo);
+        }
+
+        header h1 {
+            font-size: 8rem; /* Título principal gigante */
+            margin: 0;
+            color: var(--amarillo);
+            text-shadow: 5px 5px 0px var(--azul);
+        }
+
+        header p {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: white;
+            text-shadow: 2px 2px 10px black;
+        }
+
+        /* --- CONTENEDOR PRINCIPAL --- */
+        .container {
+            max-width: 1400px; /* Contenedor más ancho */
+            margin: -60px auto 0;
+            padding: 60px;
+            /* Fondo blanco semi-transparente para que se vea la bandera de fondo */
+            background-color: rgba(255, 255, 255, 0.96);
+            border-radius: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 10;
+        }
+
+        /* --- SECCIONES --- */
+        section {
+            margin-bottom: 100px;
+            padding-bottom: 60px;
+            border-bottom: 4px dotted #ccc;
+        }
+        section:last-child { border-bottom: none; }
+
+        /* --- LAYOUTS --- */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px; /* Más espacio entre columnas */
+            align-items: center;
+        }
+
+        .highlight-text {
+            background: linear-gradient(to right, #fff9c4, #ffffff);
+            padding: 40px;
+            border-left: 10px solid var(--amarillo);
+            border-radius: 20px;
+            font-style: italic;
+            font-size: 1.6rem;
+            box-shadow: var(--sombra-suave);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+        }
+        .gallery-grid img { height: 400px; object-fit: cover; }
+
+        /* --- GASTRONOMÍA CARDS GRADES --- */
+        .food-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .food-card {
+            background: white;
+            width: 350px; /* Tarjetas más grandes */
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: var(--sombra-suave);
+            transition: 0.4s;
+        }
+        .food-card:hover { transform: translateY(-15px); box-shadow: var(--sombra-fuerte); }
+        .food-card img { height: 250px; width: 100%; object-fit: cover; border: none; border-bottom: 5px solid var(--amarillo);}
+        .food-info { padding: 30px; text-align: center; }
+        .food-info p { font-size: 1.3rem; margin-bottom: 10px;}
+
+        /* --- BANDERA BOX --- */
+        .flag-box {
+            background: linear-gradient(135deg, var(--azul), var(--verde));
+            border-radius: 40px;
+            padding: 60px;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            box-shadow: var(--sombra-fuerte);
+        }
+        .flag-box h2, .flag-box h3 { color: var(--amarillo); text-shadow: none; border: none;}
+        .flag-box p, .flag-box li { color: white; }
+        
+        .color-circle {
+            width: 35px; height: 35px;
+            border-radius: 50%;
+            margin-right: 20px;
+            border: 3px solid white;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        footer {
+            background: linear-gradient(to right, #111, #333);
+            color: white;
+            text-align: center;
+            padding: 50px;
+            margin-top: 80px;
+        }
+        footer p { font-size: 1.2rem; margin-bottom: 10px; color: #bbb;}
+
+        @media (max-width: 1024px) {
+            header h1 { font-size: 5rem; }
+            h2 { font-size: 3rem; }
+            p { font-size: 1.3rem; }
+            .info-grid, .flag-box { grid-template-columns: 1fr; flex-direction: column; text-align: center;}
+            .flag-box { gap: 30px; }
+             .highlight-text { text-align: left; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Brasil</h1>
+        <p>Pasión, Ritmo y Naturaleza Desbordante</p>
+    </header>
+
+    <div class="container">
+        
+        <section>
+            <div class="info-grid">
+                <div>
+                    <h2>El Gigante Sudamericano</h2>
+                    <p>Brasil no es solo el país más grande de América del Sur, es un continente en sí mismo. Con una superficie de <strong>8.516.000 km²</strong>, es el quinto más extenso del mundo, un territorio vasto lleno de contrastes inigualables.</p>
+                    <p>Desde su moderna capital, <strong>Brasilia</strong>, hasta el último rincón de sus 7.400 km de litoral, se respira una energía única. El idioma oficial es el <strong>portugués</strong>, que suena como música en las calles, y su moneda es el <strong>Real (R$)</strong>.</p>
+                    <div class="highlight-text">
+                        "Brasil no es para principiantes. Es una explosión de vida, color y alegría que te atrapa para siempre."
+                    </div>
+                </div>
+                <div>
+                    <img src="img/Ft 7 de Brasil.jpg" alt="Mapa de Brasil" style="transform: rotate(3deg); box-shadow: var(--sombra-fuerte);">
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Naturaleza Épica</h2>
+            <p style="text-align: center; max-width: 1000px; margin: 0 auto 50px auto; font-size: 1.6rem;">
+                Brasil es el pulmón del mundo y el paraíso en la tierra. Limita con casi toda Sudamérica y su clima varía desde el calor húmedo ecuatorial en el norte hasta un fresco subtropical en el sur, pasando por el semiárido del nordeste.
+            </p>
+            
+            <div class="gallery-grid">
+                <div style="position: relative;">
+                     <img src="img/Ft 8 Brasil.jpg" alt="Selva Amazónica">
+                     <h3 style="text-align: center; margin-top: 15px;">El Amazonas</h3>
+                </div>
+                <div style="position: relative;">
+                    <img src="img/Ft 9 de Brasil.jpg" alt="Pantanal">
+                    <h3 style="text-align: center; margin-top: 15px;">El Pantanal</h3>
+                </div>
+                <div style="position: relative;">
+                    <img src="img/Ft 11 Brasil.jpg" alt="Playa al atardecer">
+                    <h3 style="text-align: center; margin-top: 15px;">Litoral Infinito</h3>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Alma Cultural</h2>
+            <div class="info-grid" style="grid-template-columns: 0.7fr 1.3fr;">
+                <div style="display: flex; flex-direction: column; gap: 30px;">
+                    <img src="img/Ft 3 brasil.jpg" alt="Bailarina de Samba" style="height: 300px; object-fit: cover;">
+                    <img src="img/Ft 2 Brasil.jpg" alt="Desfile de Carnaval" style="height: 300px; object-fit: cover;">
+                </div>
+                <div>
+                    <h3>La Alegría como Bandera</h3>
+                    <p>Con más de 214 millones de corazones latiendo al unísono, la cultura brasileña es una fusión vibrante de raíces indígenas, africanas y europeas. Esta mezcla ha dado lugar a una de las identidades más ricas y coloridas del planeta.</p>
+                    
+                    <h3>El Ritmo del Samba</h3>
+                    <p>La música y la danza son el lenguaje universal de Brasil. El <strong>Samba</strong>, nacido en Río de Janeiro, es el alma del Carnaval, la fiesta popular más grande del mundo donde desfilan escuelas con trajes espectaculares y una alegría contagiosa. Otros ritmos como la bossa nova, el forró y el funk carioca completan el paisaje sonoro.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>El País del Fútbol</h2>
+            <div class="info-grid" style="align-items: center;">
+                <div>
+                    <img src="img/Ft 14 Brasil.jpg" alt="Estadio Maracaná" style="height: 500px; object-fit: cover; box-shadow: var(--sombra-fuerte);">
+                </div>
+                <div style="padding-left: 30px;">
+                    <h3>El Templo Sagrado: Maracanã</h3>
+                    <p>En Brasil, el fútbol no es solo un deporte, es una religión que detiene al país. Son los únicos pentacampeones mundiales y cuna de leyendas como Pelé, Zico y Neymar.</p>
+                    <p>La catedral máxima de esta pasión es el glorioso <strong>Estádio do Maracanã</strong> en Río de Janeiro. Inaugurado para el Mundial de 1950, este coloso de cemento ha sido testigo de las mayores glorias y las tragedias más dramáticas del deporte rey.</p>
+                    <div class="highlight-text" style="font-size: 1.4rem; padding: 30px;">
+                        "Pisar el césped del Maracaná o sentir cómo tiembla con 80.000 almas gritando gol, es experimentar la esencia pura de la pasión brasileña."
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Sabores Inolvidables</h2>
+            <p style="text-align: center; margin-bottom: 50px;">La cocina brasileña es un viaje de sabor intenso y variado.</p>
+            <div class="food-container">
+                <div class="food-card">
+                    <img src="img/Ft 4 Brasil.jpg" alt="Feijoada">
+                    <div class="food-info">
+                        <h3>Feijoada</h3>
+                        <p>El plato nacional por excelencia: un guiso potente de porotos negros con carnes de cerdo, servido con arroz, farofa y naranja.</p>
+                    </div>
+                </div>
+                <div class="food-card">
+                    <img src="img/Ft 5 Brasil.jpg" alt="Acarajé">
+                    <div class="food-info">
+                        <h3>Acarajé</h3>
+                        <p>Herencia africana en Bahía: masa de porotos frita en aceite de dendé, rellena de camarones y especias picantes.</p>
+                    </div>
+                </div>
+                <div class="food-card">
+                    <img src="img/Ft 6 Brasil.jpg" alt="Pão de queijo">
+                    <div class="food-info">
+                        <h3>Pão de queijo</h3>
+                        <p>El snack más amado: pequeños panes horneados hechos con harina de yuca y mucho queso, crujientes por fuera y suaves por dentro.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 80px;">
+                <img src="img/Ft 12 Brasil.jpg" alt="Relax en la playa" style="max-height: 500px; display: inline-block; border-radius: 40px; width: 80%; object-fit: cover;">
+                <h3 style="margin-top: 20px;">El descanso merecido</h3>
+            </div>
+        </section>
+
+        <section style="border: none;">
+            <div class="flag-box">
+                <div style="flex: 1;">
+                    <img src="img/Ft 1 brasil.jpg" alt="Bandera de Brasil" style="width: 100%; border: 8px solid rgba(255,255,255,0.5); transform: rotate(-2deg);">
+                </div>
+                <div style="flex: 1.2;">
+                    <h2>Los Colores de la Patria</h2>
+                    <p>La bandera brasileña es un símbolo de orgullo nacional. El círculo azul central representa el cielo de Río de Janeiro la noche de la proclamación de la República.</p>
+                    <ul style="list-style: none; padding: 0; font-size: 1.5rem;">
+                        <li style="margin-bottom: 20px;"><div class="color-circle" style="background: #009c3b;"></div> <strong>Verde:</strong> La inmensidad de sus selvas y bosques.</li>
+                        <li style="margin-bottom: 20px;"><div class="color-circle" style="background: #ffdf00;"></div> <strong>Amarillo:</strong> Las riquezas minerales y el oro del suelo.</li>
+                        <li><div class="color-circle" style="background: #002776;"></div> <strong>Azul y Blanco:</strong> El cielo estrellado y la paz.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <h2>Brasil te espera</h2>
+        <p>&copy; 2024 - Un tributo a la cultura brasileña</p>
+    </footer>
+
+</body>
+</html>
